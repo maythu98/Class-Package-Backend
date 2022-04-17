@@ -31,7 +31,7 @@ class PackageResource extends JsonResource
             'estimate_price' => $this->estimate_price,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'subtotal' => $this->pack_price - $this->getGst(),
+            'subtotal' => number_format($this->pack_price - $this->getGst(), 2, '.', ''),
             'gst' => $this->getGst(),
             'grand_total' => $this->pack_price
         ];
@@ -39,6 +39,6 @@ class PackageResource extends JsonResource
 
     private function getGst()
     {
-        return number_format(0.007 * $this->pack_price, 2, '.', ''); ;
+        return number_format(0.007 * $this->pack_price, 2, '.', '');
     }
 }
