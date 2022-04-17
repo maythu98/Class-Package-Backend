@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Coupon;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,5 +22,8 @@ class DatabaseSeeder extends Seeder
 
         //Package Seeder
         Package::factory(10)->create();
+
+        //Coupon Seeder
+        Coupon::factory(10)->create();
     }
 }

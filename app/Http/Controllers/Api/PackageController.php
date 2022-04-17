@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PackageResource;
 use App\Repository\Eloquent\PackageRepository;
 use App\Repository\PackageRepositoryInterface;
 use Illuminate\Http\Request;
@@ -39,6 +40,6 @@ class PackageController extends Controller
     {
         $data = $this->packageRepository->find($id);
 
-        return response()->json($data);
+        return new PackageResource($data);
     }
 }
