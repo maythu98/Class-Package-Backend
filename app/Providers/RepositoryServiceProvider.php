@@ -19,7 +19,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(EloquentRepositoryInterface::class, BaseRepository::class);
         $this->app->bind(PackageRepositoryInterface::class, PackageRepository::class);
-        // $this->app->bind(EloquentRepositoryInterface::class, PackageRepository::class);
+        $this->app->bind(PackageRepositoryInterface::class, BaseRepository::class);
 
     }
 

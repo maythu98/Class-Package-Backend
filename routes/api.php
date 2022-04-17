@@ -14,6 +14,8 @@ Route::middleware(['auth:api,cors'])->group(function () {
     */
     Route::get('packages', [PackageController::class, 'index']);
 
+    Route::get('packages/{id}', [PackageController::class, 'get']);
+
     /*
     |--------------------------------------------------------------------------
     | Order Routes

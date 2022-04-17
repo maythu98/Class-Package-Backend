@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Repository\Eloquent\PackageRepository;
 use App\Repository\PackageRepositoryInterface;
 use Illuminate\Http\Request;
 
 class PackageController extends Controller
 {
-    private PackageRepositoryInterface $packageRepository;
+    private $packageRepository;
 
-    public function __construct(PackageRepositoryInterface $packageRepository) 
+    public function __construct(PackageRepository $packageRepository) 
     {
         $this->packageRepository = $packageRepository;
     }
@@ -32,5 +33,12 @@ class PackageController extends Controller
                 "pack_list" => $data,
             ]
         ]);
+    }
+
+    public function get($id)
+    {
+        $data = $this->packageRepository->find($id);
+
+        return response()->json($data);
     }
 }
